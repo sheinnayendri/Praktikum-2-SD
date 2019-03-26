@@ -193,7 +193,74 @@ switch(cmd)
 ## TDL
 Soal
 ---
-nyari jalan
+Karena trailer endgame yang sudah keluar kemarin (lihat : Trailer kekalahan Thanus ),  Thanus sangatlah ketakutan apabila dia kalah. Oleh karena itu Ia lari ke sebuah labirin sebesar N x N agar ia tidak bisa dikejar oleh para Evenjer. Dengan kekuatan batu pikiran, dia bisa mencari tahu apakah ia bisa melewati labirin tersebut. Posisi Thanus sekarang adalah di pojok kiri bawah labirin, dan jalan keluar labirin tersebut ada pada pojok kanan atas labirin. Karena Thanus masih jantungan hasil serangan dewa petir Gundala, ia hanya bisa bergerak ke 4 arah, atas, kanan, bawah, kiri. Bantulah Thanus mencari tahu apakah ia bisa melewati jalan tersebut.
+
+Clue bisa menggunakan stack atau queue untuk menampung koordinat.
+
+Input Format
+Input pertama baris pertama adalah N yang menyatakan besar labirin
+
+Dan N-baris selanjutnya menotasikan apakah koordinat tersebut bisa dilewati, 0 berarti tidak bisa dilewati, 1 berarti bisa dilewati
+
+(x,y) 0 berarti tidak bisa dilewati
+
+(x,y) 1 berati bisa dilewati
+
+Output Format
+Apabila ada jalan, maka outputkan "Ada jalan yaa Thanus"
+
+Apabila tidak ada jalan maka outputkan "Buntu yaa Thanus"
+
+Setiap output diakhiri dengan "\n"
+
+Sample Input 1
+4
+0 0 1 1
+0 0 1 0
+0 0 1 0
+1 1 1 0
+ 
+
+Sample Output 1
+Ada jalan yaa Thanus
+
+ 
+
+Sample Input 2
+4
+0 0 0 1
+0 0 1 0
+0 0 1 0
+1 1 1 0
+ 
+
+Sample Output 2
+Buntu yaa Thanus
+
+ 
+
+Explanation
+Pada sample input 1, diketahui bahwa labirinnya sebesar 4
+
+dan terdiri atas
+
+0 0 1 1
+
+0 0 1 0
+
+0 0 1 0
+
+1 1 1 0
+Karena ada jalan yang bisa dilewati mulai dari start-nya yang ada pada labirin pojok kiri bawah, 
+hingga finishnya pada pojok kanan atas, dengan Thanus hanya boleh bergerak ke 4 arah, maka ada jalan.
+
+ 
+
+Pada sample input 2, diketahui bahwa tidak ada jalan yang bisa menuju ke finish karena terpotong pada koordinat (2,3)
+
+Constraints
+2 ≤ N ≤ 300
+0 ≤ arr[x][y] ≤ 1
 
 Jawab
 ---
