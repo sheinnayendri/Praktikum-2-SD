@@ -2,13 +2,11 @@
 Demo Praktikum 2 StrukDat
 
 # SOAL
-<!-- === -->
 
 1. [AHHA](#ahha)
 4. [TDL](#tdl)
 
 ## AHHA 
-<!-- --- -->
 Bobby adalah penggemar mie instan nomor satu di dunia. Ia menjadi sangat terkenal di media sosial akan hal tersebut. Perusahaan mie terbesar di Indonesia ingin menjadikan Bobby sebagai bintangnya dan Bobby pun sangat senang mendengar hal tersebut. Perusahaan tersebut memiliki N buah jenis mie yang masing - masing memiliki nilai rasa yang akan disupply untuk Bobby. Setiap harinya perusahaan tersebut akan memberikan K jenis mie secara berurut kepada Bobby untuk dipilih oleh Bobby. Karena Bobby adalah seseorang yang perfectionist maka ia akan mengambil mie dengan nilai rasa tertinggi dari K pilihan tersebut.
 
 Contoh
@@ -99,98 +97,31 @@ Bobby dan asistennya immortal jadi dapat hidup sampai hari ke 1.000.000
 
 Jawab
 ---
-### file code [disini](https://github.com/sheinnayendri/Praktikum-2-SD/blob/master/ahha4.c)
+### Source Code AHHA [di sini](https://github.com/sheinnayendri/Praktikum-2-SD/blob/master/ahha4.c)
 
 1. Scan n dan k, yaitu banyak jenis mie, serta banyak pilihan mie untuk setiap harinya.
 2. Scan angka sebanyak n sekaligus pre-compute untuk proses mencari mie dengan nilai tertinggi dengan teknik sliding window sejauh k.
-
-* buat 2 deque, yang pertama untuk tempat sementara(q1), yang kedua untuk deque fix berisi angka yang diambil setiap hari nya
-* buat variabel counting = 1 (c), bertambah setiap kali input
-* setiap angka yang diambil push ke q1, tetapi jika q1 tidak kosong dan top nya lebih kecil dari angka yang diinput, pop q1 sebelum push dengan angka yang diinput, berikut implementasinya:
-```c
-while(q1->head!=NULL && q1->head->data<a)
-{
-    popf(q1);
-}
-pushf(q1, a, 0);
-```
-* jika c sudah lebih dari k, dan ukuran q2 lebih kecil dari nk lakukan proses memasukkan ke q2
-* jika ukuran q1 lebih kecil dari k, ambil angka paling belakang q1 tanpa pop, lalu push ke q2
-* jika tidak, pop belakang q1, ambil angkanya, push ke q2
-
-berikut code nya:
-```c
-if(c>=k && q2->size<nk)
-{
-    if(q1->size<k)
-    {
-        p = end(q1);
-        pushf(q2, p, hr);
-        hr++;
-    }
-    else
-    {
-        p = popb(q1);
-        pushf(q2, p, hr);
-        hr++;
-    }
-}
-```
-3. inisiasi q1 untuk menyimpan nilai maks, buat deque baru q3 untuk menyimpan stok, hari = 0
-4. scan hari(h) dan query(q), looping selama nilainya tidak -1, jika q1 tidak kosong maks = top q1, jika kosong maks = 0
-* loop sebanyak h-hari, hari menjadi h
-* pop belakang q2, simpan nilainya(p), push ke q3. jika p lebih besar dari maks sekarang, maks = p, push p ke q1
-
-berikut code nya:
-```c
-if(q1->head!=NULL || q1->size!=0) maks = top(q1);
-else maks = 0;
-nk = h-hr;
-hr = h;
-while(nk--)
-{
-    p = popb(q2);
-    pushf(q3, p, 0);
-    if(p>=maks) 
-    {
-        pushf(q1, p, 0);
-        maks = p;
-    }
-}
-```
-5. scan command sebanyak q
-6. jika command 1:
-* jika q3 kosong print "Stok abis"
-* jika tidak kosong, pop depan q3 simpan pada p, jika p == top q1, pop depan q1
-* print Nyam
-7. jika command 2:
-* jika q3 kosong print "Stok abis"
-* jika tidak kosong, print top q1
-```c
-switch(cmd)
-{
-    case 1:
-    if(q3==NULL || q3->size == 0) printf("Stok abis\n");
-    else
-    {
-        p = popf(q3);
-        if(p == top(q1)) popf(q1);
-        printf("Nyam\n");
-    }
-    break;
-    case 2:
-    if(q3==NULL || q3->size == 0) printf("Stok abis\n");
-    else
-    {
-        printf("%d\n", top(q1));
-    }
-    break;
-}
-```
-##### balik ke [atas](#soal)
+* Buat 2 deque, yang pertama sebagai tempat penampungan value yang diinput sementara (Qi), sedangkan deque yang kedua (st) sebagai tempat penampungan mie yang diambil setiap harinya.*
+* Terdapat variabel c untuk menghitung banyaknya input yang dilakukan agar dpat membatasi sampai kapan proses mengambil terus berlanjut.
+* Setiap angka yang diinputkan, di push back ke Qi, tetapi jika Qi tidak kosong, maka akan dicek apakah value end dari deque lebih kecil dari angka yang baru saja diinputkan atau tidak. Jika iya, maka akan terus di pop back hingga value yang lebih besar dari inputan baru / sampai deque habis. 
+* Jika c sudah lebih dari k, dan ukuran st lebih kecil dari jumlah hari maksimum (n-k+1), memasukkan front dari Qi ke st.
+* Jika ukuran Qi lebih kecil dari k, maka push back value front dari Qi ke st.
+* Jika tidak, maka push back value front dari Qi ke st, kemudian pop front Qi.
+3. Scan hari(h) dan query(u), dan looping terus hingga h=-1 dan u=-1. Jika stm (deque baru, untuk menyimpan stok mie maksimum sampai pada hari tertentu) tidak kosong, maka mx = front dari stm. Jika kosong, mx = 0.
+* Looping sebanyak h-hari, untuk ambil stok dari st sesuai hari inputan, kemudian hari menjadi h.
+* Setiap looping, jika front st lebih besar daripada mx, maka nilai mx diganti menjadi front st yang baru, dan value front st dipush back ke stm.
+4. Scan command sebanyak u.
+5. Jika command 1:
+* Jika st2 kosong print "Stok abis".
+* Jika tidak kosong, pop back st2, simpan pada m, jika m == back stm, pop back stm.
+* Cetak "Nyam".
+6. Jika command 2:
+* Jika st2 kosong print "Stok abis".
+* Jika tidak kosong, print back stm.
 
 
-## TDL (Thanus Dalam Labirin)
+## TDL
+## (Thanus Dalam Labirin)
 Soal
 ---
 Karena trailer endgame yang sudah keluar kemarin (lihat : Trailer kekalahan Thanus ),  Thanus sangatlah ketakutan apabila dia kalah. Oleh karena itu Ia lari ke sebuah labirin sebesar N x N agar ia tidak bisa dikejar oleh para Evenjer. Dengan kekuatan batu pikiran, dia bisa mencari tahu apakah ia bisa melewati labirin tersebut. Posisi Thanus sekarang adalah di pojok kiri bawah labirin, dan jalan keluar labirin tersebut ada pada pojok kanan atas labirin. Karena Thanus masih jantungan hasil serangan dewa petir Gundala, ia hanya bisa bergerak ke 4 arah, atas, kanan, bawah, kiri. Bantulah Thanus mencari tahu apakah ia bisa melewati jalan tersebut.
@@ -264,9 +195,8 @@ Constraints
 
 Jawab
 ---
-### file code [disini](https://github.com/sheinnayendri/Praktikum-2-SD/blob/master/tdl2.c)
+### Source Code TDL [di sini](https://github.com/sheinnayendri/Praktikum-2-SD/blob/master/tdl2.c)
 
-pake rekursi aja, tp dibikin strukdat. rekursi nya kyk rat in a maze. pake array of stack.
-tapi kalo dipikir2 bisa ga sih mas kalo bikin strukdat tapi linker nya 4 arah tp ga stack dong ekwkwkw. maap.
+Dikarenakan ini praktikum mengenai Struktur Data, sehingga proses DFS (Depth First Search) dilakukan secara rekursif melalui stack. Ide dari penyelesaian soal ini adalah dengan memasukkan (push) koordinat yang dilalui ke dalam sebuah stack. Stack pada awalnya diisi koordinat start (n-1,0). Selama stack masih berisi, top value dari stack akan dicek untuk bergerak ke 4 koordinat di sekitarnya, yaitu (x+1,y), (x-1,y), (x,y+1), serta (x,y-1), dan kemudian dipop. Jika koordinat-koordinat tersebut bernilai 1 dan masih dalam batas range labirin, maka koordinat yang baru tersebut akan dipush ke stack. Dan proses akan berlangsung terus. Setiap mengambil top value dari stack, jika ditemukan koordinat finish (0,n-1), maka variabel untuk cek (default diset 0), dibuat bernilai 1, dan break dari looping.
 
-##### balik ke [atas](#soal)
+Setelah pemanggilan fungsi ceklabirin, akan dicek nilai variabel cek=1 atau tidak. Jika bernilai 1, maka labirin dapat dilalui, cetak "Ada jalan yaa Thanus", sebaliknya cetak "Buntu yaa Thanus".
