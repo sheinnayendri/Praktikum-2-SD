@@ -7,7 +7,7 @@ Demo Praktikum 2 StrukDat
 1. [AHHA](#ahha)
 4. [TDL](#tdl)
 
-## AHHA
+## AHHA 
 <!-- --- -->
 Bobby adalah penggemar mie instan nomor satu di dunia. Ia menjadi sangat terkenal di media sosial akan hal tersebut. Perusahaan mie terbesar di Indonesia ingin menjadikan Bobby sebagai bintangnya dan Bobby pun sangat senang mendengar hal tersebut. Perusahaan tersebut memiliki N buah jenis mie yang masing - masing memiliki nilai rasa yang akan disupply untuk Bobby. Setiap harinya perusahaan tersebut akan memberikan K jenis mie secara berurut kepada Bobby untuk dipilih oleh Bobby. Karena Bobby adalah seseorang yang perfectionist maka ia akan mengambil mie dengan nilai rasa tertinggi dari K pilihan tersebut.
 
@@ -190,7 +190,7 @@ switch(cmd)
 ##### balik ke [atas](#soal)
 
 
-## TDL
+## TDL (Thanus Dalam Labirin)
 Soal
 ---
 Karena trailer endgame yang sudah keluar kemarin (lihat : Trailer kekalahan Thanus ),  Thanus sangatlah ketakutan apabila dia kalah. Oleh karena itu Ia lari ke sebuah labirin sebesar N x N agar ia tidak bisa dikejar oleh para Evenjer. Dengan kekuatan batu pikiran, dia bisa mencari tahu apakah ia bisa melewati labirin tersebut. Posisi Thanus sekarang adalah di pojok kiri bawah labirin, dan jalan keluar labirin tersebut ada pada pojok kanan atas labirin. Karena Thanus masih jantungan hasil serangan dewa petir Gundala, ia hanya bisa bergerak ke 4 arah, atas, kanan, bawah, kiri. Bantulah Thanus mencari tahu apakah ia bisa melewati jalan tersebut.
