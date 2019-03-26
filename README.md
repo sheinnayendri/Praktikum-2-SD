@@ -101,8 +101,8 @@ Jawab
 ---
 ### file code [disini](https://github.com/sheinnayendri/Praktikum-2-SD/blob/master/Praktikum-2-SD/ahha4.c)
 
-1. Scan n dan k, hitung jumalah hari maksimal (nk) `nk = n-k+1;`
-2. scan angka sebanyak n sambil pre-compute biar ga tle, setiap kali input langsung diproses dengan cara:
+1. Scan n dan k, yaitu banyak jenis mie, serta banyak pilihan mie untuk setiap harinya.
+2. Scan angka sebanyak n sekaligus pre-compute untuk proses mencari mie dengan nilai tertinggi dengan teknik sliding window sejauh k.
 
 * buat 2 deque, yang pertama untuk tempat sementara(q1), yang kedua untuk deque fix berisi angka yang diambil setiap hari nya
 * buat variabel counting = 1 (c), bertambah setiap kali input
@@ -189,60 +189,6 @@ switch(cmd)
 ```
 ##### balik ke [atas](#soal)
 
-## EZTR
----
-
-Soal
----
-kita disuruh mengecek apakah setiap bracket ada pasangannya
-
-contoh:
-* (((()))) print :v
-* ({} print v:
-
-Jawab
----
-### file code [disini](https://gitlab.com/Coll_J/praktikum-2-sda/blob/master/praktikum-2-sda/eztr.c)
-
-1. inputan dalam string, setiap kurung buka **(, {, [** push ke dalam stack
-2. setiap kurung tutup, cek apakah top di stack adalah pasangannya. jika iya, pop.
-```c
-if(input[i]=='(' || input[i]=='{' || input[i]=='[')
-{
-    push(&stacc, input[i]);
-}
-else if(input[i]==')' || input[i]=='}' || input[i]==']')
-{
-    if(input[i]==')' && top(stacc)=='(') pop(&stacc);
-    else if(input[i]=='}' && top(stacc)=='{') pop(&stacc);
-    else if(input[i]==']' && top(stacc)=='[') pop(&stacc);
-}
-```
-3. cek jika stack kosong atau tidak. jika iya, print :v, jika tidak print v:.
-
-##### balik ke [atas](#soal)
-
-## SDM
-Soal
----
-disuruh nyari tau itu strukdat stack/queue/keduanya
-
-Jawab
----
-### file code [disini](https://gitlab.com/Coll_J/praktikum-2-sda/blob/master/praktikum-2-sda/sdm.c)
-
-1. buat 4 flag untuk stack, queue, error, tidak tau.
-2. alokasi strukdat
-3. kalo command 1 push
-4. kalo command 2:
-* stack kosong error = 1
-* sama kyk head dan tail, stack = 1, queue = 1
-* sama kyk head doang, stack = 1, queue = 0
-* sama kyk tail doang, stack = 0, queue = 1
-* sama kyk head/tail doang, tp queue/stack ga sama(1 atau 0), tidak tahu = 1
-* ga sama kyk dua2 nya, tidak tahu = 1
-
-##### balik ke [atas](#soal)
 
 ## TDL
 Soal
@@ -251,7 +197,7 @@ nyari jalan
 
 Jawab
 ---
-### file code [disini](https://gitlab.com/Coll_J/praktikum-2-sda/blob/master/praktikum-2-sda/tdl.c)
+### file code [disini](https://github.com/sheinnayendri/Praktikum-2-SD/blob/master/Praktikum-2-SD/ahha4.c)
 
 pake rekursi aja, tp dibikin strukdat. rekursi nya kyk rat in a maze. pake array of stack.
 tapi kalo dipikir2 bisa ga sih mas kalo bikin strukdat tapi linker nya 4 arah tp ga stack dong ekwkwkw. maap.
