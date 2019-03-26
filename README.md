@@ -99,7 +99,7 @@ Bobby dan asistennya immortal jadi dapat hidup sampai hari ke 1.000.000
 
 Jawab
 ---
-### file code [disini](https://github.com/sheinnayendri/Praktikum-2-SD/blob/master/Praktikum-2-SD/ahha4.c)
+### file code [disini](https://github.com/sheinnayendri/Praktikum-2-SD/blob/master/ahha4.c)
 
 1. Scan n dan k, yaitu banyak jenis mie, serta banyak pilihan mie untuk setiap harinya.
 2. Scan angka sebanyak n sekaligus pre-compute untuk proses mencari mie dengan nilai tertinggi dengan teknik sliding window sejauh k.
