@@ -197,7 +197,7 @@ nyari jalan
 
 Jawab
 ---
-### file code [disini](https://github.com/sheinnayendri/Praktikum-2-SD/blob/master/Praktikum-2-SD/ahha4.c)
+### file code [disini](https://github.com/sheinnayendri/Praktikum-2-SD/blob/master/tdl2.c)
 
 pake rekursi aja, tp dibikin strukdat. rekursi nya kyk rat in a maze. pake array of stack.
 tapi kalo dipikir2 bisa ga sih mas kalo bikin strukdat tapi linker nya 4 arah tp ga stack dong ekwkwkw. maap.
