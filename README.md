@@ -99,7 +99,7 @@ Bobby dan asistennya immortal jadi dapat hidup sampai hari ke 1.000.000
 
 Jawab
 ---
-### file code [disini](https://gitlab.com/Coll_J/praktikum-2-sda/blob/master/praktikum-2-sda/ahha2.c)
+### file code [disini](Praktikum-2-SD/ahha4.c)
 
 1. Scan n dan k, hitung jumalah hari maksimal (nk) `nk = n-k+1;`
 2. scan angka sebanyak n sambil pre-compute biar ga tle, setiap kali input langsung diproses dengan cara:
